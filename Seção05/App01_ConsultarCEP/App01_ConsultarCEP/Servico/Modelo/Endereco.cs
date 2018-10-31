@@ -15,6 +15,6 @@ namespace App01_ConsultarCEP.Servico.Modelo
         public string uf { get; set; }
         public string unidade { get; set; }
         public string ibge { get; set; }
-        public string guia { get; set; }
+        public string gia { get; set; }
     }
 }

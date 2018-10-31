@@ -11,13 +11,16 @@
         <Image Source="logo.png"/>
         <Entry Placeholder="Digite o CEP" 
                PlaceholderColor="#FFBF00" 
-               BackgroundColor="#FFFFFF"/>
+               BackgroundColor="#FFFFFF"
+               x:Name="CEP"/>
         <Button Text="Buscar CEP" 
                 TextColor="#FFFFFF" 
-                BackgroundColor="#00416B"/>
+                BackgroundColor="#00416B"
+                x:Name="BOTAO"/>
         <Label Text="Bem vindo a Xamarin.Forms!"
                VerticalOptions="Center" 
-               HorizontalOptions="Center" />
+               HorizontalOptions="Center"
+               x:Name="RESULTADO"/>
     </StackLayout>
 
 </ContentPage>

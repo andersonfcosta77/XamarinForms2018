@@ -9,7 +9,7 @@ namespace App01_ConsultarCEP.Servico
 {
     public class ViaCEPServico
     {
-        private static string EnderecoURL = "http://viacep.com.br/ws/{0}/json/?callback=callback_name";
+        private static string EnderecoURL = "http://viacep.com.br/ws/{0}/json";
         public static Endereco BuscarEnderecoViaCEP(string CEP)
         {
             string NovoEnderecoURL = string.Format(EnderecoURL, CEP);
