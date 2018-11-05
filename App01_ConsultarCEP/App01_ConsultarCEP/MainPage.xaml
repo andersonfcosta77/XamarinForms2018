@@ -8,7 +8,7 @@
         BackgroundColor="#FFBF00" 
         Padding="30"
         Spacing="30">        
-        <Image Source="logo.png"/>
+        <Image Source="Logo.png"/>
         <Entry Placeholder="Digite o CEP" 
                PlaceholderColor="#FFBF00" 
                BackgroundColor="#FFFFFF"
