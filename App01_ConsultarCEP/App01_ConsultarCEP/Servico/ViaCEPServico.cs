@@ -15,8 +15,8 @@ namespace App01_ConsultarCEP.Servico
             string NovoEnderecoURL = string.Format(EnderecoURL, CEP);
             WebClient wc = new WebClient();
             string conteudo =  wc.DownloadString(NovoEnderecoURL);
-            Endereco end = JsonConvert.DeserializeObject<Endereco>(conteudo);
-            return end;
+            Endereco endereco = JsonConvert.DeserializeObject<Endereco>(conteudo);
+            return endereco;
         }
     }
 }
