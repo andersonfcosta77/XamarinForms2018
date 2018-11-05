@@ -15,29 +15,37 @@ namespace App01_ConsultarCEP
         public MainPage()
         {
             InitializeComponent();
-            BOTAO.Clicked += BuscarCEP;                        
+            BOTAO.Clicked += BuscarCEP;
         }
 
         private void BuscarCEP(object sender, EventArgs args)
         {
-            //TODO - Lógica de programação
+            //1.TODO - Lógica de programação
 
-            //TODO - Validações
+            //1.1 TODO - Validações
 
-            //TODO - Consulta a API
+            //1.2 TODO - Consulta a API
             string cep = CEP.Text.Trim();
             if (isValidCEP(cep))
             {
-                Endereco end = ViaCEPServico.BuscarEnderecoViaCEP(CEP.Text);
-                if (isFoundCEP(end))
+                try
                 {
-                    RESULTADO.Text = string.Format("{2} - Bairro {3} - {0}/{1}", end.localidade, end.uf, end.logradouro, end.bairro);
+                    Endereco end = ViaCEPServico.BuscarEnderecoViaCEP(CEP.Text);
+                    if (isFoundCEP(end))
+                    {
+                        RESULTADO.Text = string.Format("{2} /n Bairro {3} /n - {0}/{1}", end.localidade, end.uf, end.logradouro, end.bairro);
+                    }
+                    else
+                    {
+                        RESULTADO.Text = "";
+                    }
                 }
-                else
+                catch (Exception e)
                 {
-                    RESULTADO.Text = "";
+                    DisplayAlert("Erro Crítico",e.Message,"OK");
                 }
-                
+
+
             }
         }
 
@@ -53,7 +61,7 @@ namespace App01_ConsultarCEP
                 mensagemErro = "O CEP Deve conter 8 caracteres.";
                 valido = false;
             }
-            //TODO - Validar se é numérico 
+            //TODO - Validar se é numérico(tentar converter para numérico)
             int NovoCEP = 0;
             if (!int.TryParse(CEP, out NovoCEP))
             {
@@ -63,7 +71,7 @@ namespace App01_ConsultarCEP
             }
             if (valido == false)
             {
-                DisplayAlert("ERRO", mensagemErro , "Ok");
+                DisplayAlert("ERRO", mensagemErro, "Ok");
             }
             return valido;
         }
